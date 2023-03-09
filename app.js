@@ -4,7 +4,6 @@ const storageCtrl = (function(){
   return{
     getStrorageItems: function(){
       const storeItems = JSON.parse(localStorage.getItem('items'))
-   
       if(storeItems !== null){
         return JSON.parse(localStorage.getItem('items'))
       } else{
@@ -35,14 +34,12 @@ const itemCtrl =(function(){
       this.calories = calories
     }
     // Data Structure / State
-
     const data = {
         items:storageCtrl.getStrorageItems(),
         currentItem: null,
         totalCalories: 0
       }
 
-    // const data = storageCtrl.getStrorageItems()  
     // public methods
     return{
       // get items
