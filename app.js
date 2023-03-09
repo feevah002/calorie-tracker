@@ -3,9 +3,10 @@ const c = console.log.bind(console)
 const storageCtrl = (function(){
   return{
     getStrorageItems: function(){
-      const storeItems = JSON.parse(localStorage.getItem('data'))
+      const storeItems = JSON.parse(localStorage.getItem('items'))
+   
       if(storeItems !== null){
-        return JSON.parse(localStorage.getItem('data'))
+        return JSON.parse(localStorage.getItem('items'))
       } else{
         return []
       }
@@ -40,10 +41,12 @@ const itemCtrl =(function(){
         currentItem: null,
         totalCalories: 0
       }
+
     // const data = storageCtrl.getStrorageItems()  
     // public methods
     return{
       // get items
+      
       getItems: function(){
         return data.items
       },
@@ -60,6 +63,7 @@ const itemCtrl =(function(){
         UICtrl.populateItemList(data.items)
         // add to storage
         itemCtrl.getcals()
+        c(data.items)
         storageCtrl.addItemToStorage(data.items)
       },
       // get total calorie
